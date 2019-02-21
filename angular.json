@@ -24,7 +24,10 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/freelancer.css",
+              "src/assets/vendor/fontawesome-free/css/all.min.css",
+              "src/assets/vendor/magnific-popup/magnific-popup.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
