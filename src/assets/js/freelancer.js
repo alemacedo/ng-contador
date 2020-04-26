@@ -42,8 +42,10 @@
       var navbarCollapse = function () {
         if ($("#mainNav").offset().top > 100) {
           $("#mainNav").addClass("navbar-shrink");
+          $("#homeLink").text("AC");
         } else {
           $("#mainNav").removeClass("navbar-shrink");
+          $("#homeLink").text("Armando Contador");
         }
       };
       // Collapse now if page is not at top
