@@ -1,0 +1,40 @@
+version: 0.2 
+ 
+# env: 
+#     variables: 
+#         S3_BUCKET: "numen-rh" 
+#         APP_NAME: "numen-rh" 
+#         CLOUDFRONT_ID: "E11FHQVVLPVH53" 
+#         BUILD_ENV : "prod" 
+ 
+phases: 
+    install: 
+        commands: 
+        # Instalando Angular 
+        - npm install -g @angular/cli 
+        # Instalando dependencias do projeto 
+        - npm install 
+ 
+    build: 
+        commands: 
+        # Builds Angular Application 
+        - ng build --prod --aot
+
+    post_build:
+        commands: 
+    #     # Clear S3 bucket. 
+    #     - aws s3 rm s3://${S3_BUCKET} --recursive 
+    #     # Sync dist folder to S3 bucket and delete old files
+        - aws s3 sync ./www s3://site-contador --acl 'public-read' --delete 
+    #     # Limpa cache do CloudFront 
+        # - aws cloudfront create-invalidation --distribution-id E2EIZECV148WIP --paths "/*" 
+ 
+# artifacts: 
+#     files: 
+#         - '**/*.html'
+#         - '**/*.js'
+#         - '**/*.css'
+#         - '**/*.ico'
+#     name: numen-rh-$(date +%Y-%m-%d)  
+#     discard-paths: yes 
+#     #base-directory: 'dist*'
