@@ -1,3 +1,36 @@
+# INFO utils
+
+## S3 bucket ARN
+```bash
+arn:aws:s3:::site-contador
+```
+
+## Site endpoint on S3
+```bash
+http://site-contador.s3-website-sa-east-1.amazonaws.com/
+```
+[Acessar](http://site-contador.s3-website-sa-east-1.amazonaws.com/)
+
+## Bucket policy to allow public access
+```bash
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::site-contador/*"
+            ]
+        }
+    ]
+}
+```
+
 # Project
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.2.
